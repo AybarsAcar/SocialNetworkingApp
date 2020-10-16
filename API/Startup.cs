@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using API.Data;
 using API.Extentions;
 using API.Interfaces;
+using API.MIddleware;
 using API.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
@@ -47,10 +48,7 @@ namespace API
 
     public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
     {
-      if (env.IsDevelopment())
-      {
-        app.UseDeveloperExceptionPage();
-      }
+      app.UseMiddleware<ExceptionMiddleware>();
 
       app.UseHttpsRedirection();
 
