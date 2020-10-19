@@ -17,11 +17,11 @@
         </div>
         <div>
           <strong>Last Active:</strong>
-          <p>{{ member.lastActive }}</p>
+          <p>{{ member.lastActive | timeago }}</p>
         </div>
         <div>
           <strong>Member Since:</strong>
-          <p>{{ member.created }}</p>
+          <p>{{ member.created | date: "dd MMM yyyy" }}</p>
         </div>
       </div>
 
@@ -57,7 +57,7 @@
       </tab>
       <tab heading="Messages">
         <h4>Messages</h4>
-        <p>Messages will go here...</p>
+        <app-member-messages [username]="member.userName"></app-member-messages>
       </tab>
     </tabset>
   </div>
