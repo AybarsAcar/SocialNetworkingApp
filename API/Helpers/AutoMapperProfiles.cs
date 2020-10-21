@@ -1,3 +1,4 @@
+using System;
 using System.Linq;
 using API.DTOs;
 using API.Entities;
@@ -33,6 +34,9 @@ namespace API.Helpers
           opt => opt.MapFrom(
             src => src.Recipient.Photos.FirstOrDefault(x => x.IsMain).Url
           ));
+
+      // mapping to UTC date time so the client will know
+      CreateMap<DateTime, DateTime>().ConvertUsing(d => DateTime.SpecifyKind(d, DateTimeKind.Utc));
     }
   }
 }

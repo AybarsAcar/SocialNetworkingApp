@@ -16,7 +16,7 @@ namespace API.Entities
 
     public string Content { get; set; }
     public DateTime? DateRead { get; set; }
-    public DateTime MessageSent { get; set; } = DateTime.Now;
+    public DateTime MessageSent { get; set; } = DateTime.UtcNow;
 
     /* 
     if a user want to delete we wont delete the message from the other user
