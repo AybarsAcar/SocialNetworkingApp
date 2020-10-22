@@ -36,7 +36,7 @@ namespace API.Helpers
           ));
 
       // mapping to UTC date time so the client will know
-      CreateMap<DateTime, DateTime>().ConvertUsing(d => DateTime.SpecifyKind(d, DateTimeKind.Utc));
+      // CreateMap<DateTime, DateTime>().ConvertUsing(d => DateTime.SpecifyKind(d, DateTimeKind.Utc));
     }
   }
 }

@@ -24,11 +24,7 @@ namespace API.Extentions
 
       services.AddScoped<LogUserActivity>();
 
-      services.AddScoped<IUserRepository, UserRepository>();
-
-      services.AddScoped<ILikesRepository, LikesRepository>();
-
-      services.AddScoped<IMessageRepository, MessageRepository>();
+      services.AddScoped<IUnitOfWork, UnitOfWork>();
 
       services.AddAutoMapper(typeof(AutoMapperProfiles).Assembly);
 

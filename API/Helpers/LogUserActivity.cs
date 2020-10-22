@@ -19,11 +19,11 @@ namespace API.Helpers
       var userId = resultContext.HttpContext.User.GetUserId();
 
       // get access to our repo with service locator pattern
-      var repo = resultContext.HttpContext.RequestServices.GetService<IUserRepository>();
-      var user = await repo.GetUserByIdAsync(userId);
+      var unit = resultContext.HttpContext.RequestServices.GetService<IUnitOfWork>();
+      var user = await unit.UserRepository.GetUserByIdAsync(userId);
 
-      user.LastActive = DateTime.Now;
-      await repo.SaveAllAsync();
+      user.LastActive = DateTime.UtcNow;
+      await unit.Complete();
     }
   }
 }
